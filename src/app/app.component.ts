@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import {AngularFire} from "angularfire2";
 
 @Component({
-  selector: 'app-root',
+  moduleId: module.id,
+  selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  constructor(private af: AngularFire){}
+
+  logout(){
+    this.af.auth.logout();
+  }
 }
+

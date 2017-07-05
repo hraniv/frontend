@@ -1,0 +1,80 @@
+/*desktop*/
+@media screen and (max-width: 960px) {
+    .header,.nav {
+        width: 960px;
+    }
+    main,.header__inner,.nav__list {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*tablet*/
+/*@media screen and (min-width: 600px) {*/
+/*}*/
+
+/*mobile*/
+@media screen and (max-width: 800px) {
+    .header,.nav {
+        width: 100%;
+    }
+    main,.header__inner,.nav__list,.info {
+        width: 100%;
+    }
+    .header__inner div.title {
+        width: 70%;
+    }
+    .nav__list a{
+        font-size: 1em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .side-nav {
+        z-index: 10;
+        background-color: #fff;
+        width: 297px;
+        position: absolute;
+        -webkit-transform: translate(-300px, 0);
+        transform: translate(-300px, 0);
+        margin: 5px 0 0 0;
+    }
+
+    .side-nav.open {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+        transition: transform 0.3s ease;
+    }
+
+    .side-nav__item {
+        display: block;
+        text-align: left;
+    }
+
+    .header__icon {
+        font-size: 2em;
+        float: right;
+        margin: 0.5em 0.25em;
+        color: gray;
+        display: block;
+    }
+
+    .weather{
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 400px) {
+    .header__logo {
+        display: none;
+    }
+
+    .header__title {
+        font-size: 2em;
+    }
+    .scores__table__wrapper {
+        overflow-x: scroll;
+    }
+}

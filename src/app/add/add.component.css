@@ -1,0 +1,22 @@
+.add {
+  width: 100%;
+  background: white;
+  padding: 15px;
+  margin: 5px 0;
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(148, 142, 148, 1);
+  -moz-box-shadow: 2px 2px 1px 0px rgba(148, 142, 148, 1);
+  box-shadow: 2px 2px 1px 0px rgba(148, 142, 148, 1);
+}
+
+.add-content {
+  width: 50%;
+  margin: 25px auto;
+}
+
+.add-content input, .add-content select, .add-content textarea {
+  width: 100%;
+}
+
+.add-content textarea {
+  height: 10em;
+}

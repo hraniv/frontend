@@ -1,0 +1,15 @@
+<section class="edit form">
+  <section class="edit-content">
+    <form (submit)="editArticle()" *ngIf="article">
+      <input id="title" name="title" type="text" [(ngModel)]="article.title" title="Title" placeholder="Title" required>
+      <textarea name="content" id="content" title="content" [(ngModel)]="article.content" placeholder="Content" cols="30" rows="50" required></textarea>
+      <select name="category" id="category" title="category" [(ngModel)]="article.category">
+        <option value="1">Home</option>
+        <option value="2">Business</option>
+      </select>
+      <input type="submit" class="button button-primary" value="Edit article">
+    </form>
+  </section>
+
+
+</section>

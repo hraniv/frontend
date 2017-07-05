@@ -1,0 +1,18 @@
+<section class="auth">
+  <section class="auth-content">
+    <a (click)="loginG()" class="auth-btn auth-center google">
+      <span class="icon fa fa-google"></span>
+      <span class="buttonText">Log in with Google</span>
+    </a>
+    <a (click)="loginFb()" class="auth-btn auth-center fb">
+      <span class="icon fa fa-facebook-f"></span>
+      <span class="buttonText">Log in with Facebook</span>
+    </a>
+    <div>or</div>
+    <form>
+      <input id="email" name="email" type="email" placeholder="Email" required>
+      <input id="password" name="password" placeholder="Password" type="password" required>
+      <input type="submit" class="button button-primary" value="Sign in">
+    </form>
+  </section>
+</section>

@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<header class="header">
+    <div class="header__inner">
+        <img src="http://lorempixel.com/g/50/50/city/" alt="Logo">
+        <div class="title">Hraniv village site</div>
+        <div class="weather">Hraniv -5C</div>
+        <a *ngIf="!(af.auth | async)" [routerLink]="['/login']" class="login">Login</a>
+        <a *ngIf="(af.auth | async)" (click)="logout()" class="login">Logout</a>
+        <span class="header__icon" id="menu">&#9776;</span>
+    </div>
+</header>
+<main-nav></main-nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer></footer>

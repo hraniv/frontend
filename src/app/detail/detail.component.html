@@ -1,0 +1,14 @@
+<section class="detail">
+  <section class="detail-content">
+    <div *ngIf="article">
+      <div class="image"><img style="width:100%" class="thumbnail" src="{{article.imageUrl}}"></div>
+      <h1>{{article.title}}</h1>
+      <div class="article-content">{{article.content}}</div>
+      <div class="btn-wrapper">
+        <a class="button button-primary" [routerLink]="['/articles', article.category, article.$key, 'edit']">Edit</a>
+        <a class="button button-danger" (click)="remove()">Delete</a>
+      </div>
+    </div>
+
+  </section>
+</section>

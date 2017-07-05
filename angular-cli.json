@@ -18,7 +18,10 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles/reset.css",
+        "styles/main.css",
+        "styles/responsive.css",
+        "styles/font-awesome-4.7.0/css/font-awesome.css"
       ],
       "scripts": [],
       "environments": {

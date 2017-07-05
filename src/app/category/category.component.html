@@ -1,0 +1,7 @@
+<nav class="nav">
+    <ul class="nav__list">
+        <li *ngFor="let category of categories; let i = index" [class.active]="isCategoryActive(category)" class="nav__item">
+            <a [routerLink]="['/category', category.id]">{{category.name}}</a>
+        </li>
+    </ul>
+</nav>
