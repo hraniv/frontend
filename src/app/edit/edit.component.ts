@@ -12,41 +12,43 @@ import {Article} from "../article"
 
 
 @Component({
-  moduleId: module.id,
-  selector: 'content',
-  templateUrl: 'edit.component.html',
-  styleUrls: ['edit.component.css'],
+    moduleId: module.id,
+    selector: 'content',
+    templateUrl: 'edit.component.html',
+    styleUrls: ['edit.component.css'],
 })
 
 export class EditComponent implements OnInit {
 
-  //used to use this but it is not compile due to Typescript errors
-  //need to understand typescript better for this to resolve
-  // article: FirebaseObjectObservable<Article>;
-  article: any;
+    //used to use this but it is not compile due to Typescript errors
+    //need to understand typescript better for this to resolve
+    // article: FirebaseObjectObservable<Article>;
+    article: any;
 
-  constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
-    // this.articlesService.getArticles().subscribe((articles:Article[]) => {
-    //     this.articles = articles;
-    // });
-  }
+    constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
+        // this.articlesService.getArticles().subscribe((articles:Article[]) => {
+        //     this.articles = articles;
+        // });
+    }
 
-  editArticle() {
-    let article = {
-      title: this.article.title,
-      content: this.article.content,
-      category: this.article.category,
-    };
-    this.service.updateArticle(this.article.$key, article);
-    this.router.navigate([`category/${this.article.category}`]).catch(err => {
-      console.error(err, 'Navigate error')
-    });
-  }
+    editArticle() {
+        //  understand how to change image
+        let article = {
+            title: this.article.title,
+            content: this.article.content,
+            category: this.article.category,
+        };
+        //dummy method
+        this.service.updateArticle(this.article.$key, article);
+        this.router.navigate([`category/${this.article.category}`]).catch(err => {
+            console.error(err, 'Navigate error')
+        });
+    }
 
-  ngOnInit() {
-    this.route.params
-    // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
-      .subscribe((article: Article) => this.article = article);
-  }
+    ngOnInit() {
+        this.route.params
+        // (+) converts string 'id' to a number
+            .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
+            .subscribe((article: Article) => this.article = article);
+    }
 }

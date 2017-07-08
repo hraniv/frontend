@@ -4,6 +4,7 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
+//understand how to work with FirebaseListObservable and typescript's checking features
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 @Injectable()

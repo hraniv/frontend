@@ -11,29 +11,31 @@ import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
 
 
 @Component({
-  moduleId: module.id,
-  selector: 'content',
-  templateUrl: 'auth.component.html',
-  styleUrls: ['auth.component.css'],
+    moduleId: module.id,
+    selector: 'content',
+    templateUrl: 'auth.component.html',
+    styleUrls: ['auth.component.css'],
 })
 export class AuthComponent {
 
-  constructor(private af: AngularFire, private router: Router) {
-    // this.articlesService.getArticles().subscribe((articles:Article[]) => {
-    //     this.articles = articles;
-    // });
-  }
+    constructor(private af: AngularFire, private router: Router) {
+        // this.articlesService.getArticles().subscribe((articles:Article[]) => {
+        //     this.articles = articles;
+        // });
+    }
 
-  loginG() {
-    //call basic login function which is configured to use Google provider in app.module.ts
-    this.af.auth.login();
-    this.router.navigate(['']).catch((err) => {console.error(err)});
-  }
+    loginG() {
+        //call basic login function which is configured to use Google provider in app.module.ts
+        this.af.auth.login();
+        this.router.navigate(['']).catch((err) => {
+            console.error(err)
+        });
+    }
 
-  loginFb() {
-    this.af.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Redirect,
-    });
-  }
+    loginFb() {
+        this.af.auth.login({
+            provider: AuthProviders.Facebook,
+            method: AuthMethods.Redirect,
+        });
+    }
 }

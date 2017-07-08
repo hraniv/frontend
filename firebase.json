@@ -1,8 +1,16 @@
 {
-  "database": {
-    "rules": "database.rules.json"
-  },
-  "hosting": {
-    "public": "dist"
-  }
+    "database": {
+        "rules": "database.rules.json"
+    },
+    "hosting": {
+        "public": "dist",
+        "headers": [
+            {
+                "source": "/",
+                "headers": [
+                    {"key": "Link", "value": "<vendor.bundle.js>;rel=preload;as=script"}
+                ]
+            }
+        ]
+    }
 }

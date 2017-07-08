@@ -13,33 +13,35 @@ import {Article} from "../article"
 
 
 @Component({
-  moduleId: module.id,
-  selector: 'content',
-  templateUrl: 'detail.component.html',
-  styleUrls: ['detail.component.css'],
+    moduleId: module.id,
+    selector: 'content',
+    templateUrl: 'detail.component.html',
+    styleUrls: ['detail.component.css'],
 })
 
 export class DetailComponent implements OnInit {
+    //  understand why I can't use FirebaseObjectObservable<Article> instead of any
+    article: any;
 
-  article: any;
+    constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
+        // this.articlesService.getArticles().subscribe((articles:Article[]) => {
+        //     this.articles = articles;
+        // });
+    }
 
-  constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
-    // this.articlesService.getArticles().subscribe((articles:Article[]) => {
-    //     this.articles = articles;
-    // });
-  }
+    ngOnInit() {
+        this.route.params
+        // (+) converts string 'id' to a number
+        //    this should consume only article id after schema redesign
+            .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
+            .subscribe((article: FirebaseObjectObservable<Article>) => this.article = article, (err) => console.error(err));
+    }
 
-  ngOnInit() {
-    this.route.params
-    // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
-      .subscribe((article: FirebaseObjectObservable<Article>) => this.article = article, (err) => console.error(err));
-  }
-
-  remove() {
-    let redirect_url = `/category/${this.article.category}`;
-    this.service.deleteArticle(this.article.$key);
-    this.router.navigateByUrl(redirect_url).catch(err => console.error(err));
-  }
+    remove() {
+        let redirect_url = `/category/${this.article.category}`;
+        //dummy method
+        this.service.deleteArticle(this.article.$key);
+        this.router.navigateByUrl(redirect_url).catch(err => console.error(err));
+    }
 }
 
